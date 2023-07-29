@@ -35,7 +35,5 @@ async def main(message: str):
     # Call the chain asynchronously
     res = await llm_chain.acall(message, callbacks=[cl.AsyncLangchainCallbackHandler()])
 
-    # Do any post processing here
-
     # Send the response
     await cl.Message(content=res["text"]).send()
